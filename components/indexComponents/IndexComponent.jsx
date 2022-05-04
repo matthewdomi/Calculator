@@ -22,7 +22,7 @@ const CreatCalculator = () => {
       <div className={Calculator.content}>
         <div className={Calculator.clearWithScreen}>
           <button type="button" className="btn btn-outline-danger btn-rounded clear" data-mdb-ripple-color="dark">C</button>
-          <input type="number" id="valor" name="numeros" className={Calculator.screen} />
+          <input type="text" id="valor" name="numeros" className={Calculator.screen} readonly/>
         </div>
         <div className={Calculator.buttonGroup+" row"} name="buttonGroup">
           <div className="col">
