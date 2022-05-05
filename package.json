@@ -2,15 +2,12 @@
   "name": "calculadora_nextjs",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://michael-24.github.io/deploy-nextjs-github-pages-with-ci/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "lint": "next lint",
-    "predeploy":"npm run build",
-    "deploy":"master -d build -r https://$GH_TOKEN@github.com/michael-24.github.io/deploy-nextjs-github-pages-with-ci/"
+    "lint": "next lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
