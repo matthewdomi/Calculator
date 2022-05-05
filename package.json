@@ -2,11 +2,14 @@
   "name": "calculadora_nextjs",
   "version": "0.1.0",
   "private": true,
+  "homepage":"https://michael-24.github.io/deploy-nextjs-github-pages-with-ci/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build -r https://$GH_TOKEN@github.com/michael-24.github.io/deploy-nextjs-github-pages-with-ci/"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -21,6 +24,7 @@
   },
   "devDependencies": {
     "eslint": "8.14.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "gh-pages": "^3.2.3"
   }
 }
