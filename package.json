@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "predeploy":"npm run build",
-    "deploy":"gh-pages -d build -r https://$GH_TOKEN@github.com/michael-24.github.io/deploy-nextjs-github-pages-with-ci/"
+    "deploy":"master -d build -r https://$GH_TOKEN@github.com/michael-24.github.io/deploy-nextjs-github-pages-with-ci/"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
