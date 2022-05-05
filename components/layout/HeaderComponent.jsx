@@ -22,23 +22,7 @@ const CreateHeaderComponent = () => {
             <span className="navbar-toggler-icon "></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link href="/">
-                  <a className="nav-link">Inicio</a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/#">
-                  <a className="nav-link" >Contacto</a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/#">
-                  <a className="nav-link" >Nosotros</a>
-                </Link>
-              </li>
-            </ul>
+            <h1 class="h1 text-light">Calcualodora online sencilla - Nextjs</h1>
           </div>
         </div>
       </nav>
