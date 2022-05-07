@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CalculatorKey = (props) => {
+const CalculatorKey = (props) => {//Crear los botones con su metodo click
     return (
         <button
             type="button" className="btn btn-outline-dark btn-rounded " 

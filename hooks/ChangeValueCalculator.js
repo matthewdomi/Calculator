@@ -8,7 +8,7 @@ function ChangeValueCalculator() {
 
     useEffect(() => { }, [op, nextValue, prevValue]);
 
-    const CalculatorOperations = {
+    const CalculatorOperations = {/*Almacena las operaciones de la calculadora y realiza la operacion*/
         "÷": (firstValue, secondValue) => firstValue / secondValue,
         "x": (firstValue, secondValue) => firstValue * secondValue,
         "+": (firstValue, secondValue) => firstValue + secondValue,
@@ -17,16 +17,16 @@ function ChangeValueCalculator() {
     };
 
     const performOperation = () => {
-        let temp = CalculatorOperations[op](
+        let temp = CalculatorOperations[op](// Realiza la operacion de los valores almacenados
             parseFloat(prevValue),
             parseFloat(nextValue)
         );
-        setOp(null);
-        setNextValue(String(temp));
-        setPrevValue(null);
+        setOp(null);// Setea la operacion
+        setNextValue(String(temp));//vuelve 0 el siguiente valot
+        setPrevValue(null);//el valor anterior lo vuelve null
     };
 
-    const handleNum = (number) => {
+    const handleNum = (number) => {//Si el valor es 0, se mantiene asi, si no se le suma al valor que estaba antes
         setNextValue(nextValue === "0" ? String(number) : nextValue + number);
     };
 
@@ -53,39 +53,40 @@ function ChangeValueCalculator() {
         if(newNextValue.length>0) setNextValue(newNextValue);
         else setNextValue("0");
     };
-    const handleOperation = (value) => {
+    const handleOperation = (value) => {//Recibe el valor ingresado
        
-        if (Number.isInteger(Number(value))) {
-            handleNum(parseInt(value, 10));
-        } else if (value in CalculatorOperations) {
-            if (op === null) {
-                setOp(value);
-                setPrevValue(nextValue);
-                setNextValue("");
+        if (Number.isInteger(Number(value))) {// Si el valor ingresado es numero
+            handleNum(parseInt(value, 10));// Se agrega el valor ingresado en pantalla
+        } else if (value in CalculatorOperations) {// Si no es numero, quiere decir que es una operacion que se encuentra en CalculatorOperations
+            if (op === null) {//Si aun no existe operacion
+                setOp(value);// asignamos
+                setPrevValue(nextValue);//agregamos el valor previo con el numero que este ingresado
+                setNextValue(""); //No asignamos valor a mostrar
             }
 
-            if (op) {
-                setOp(value);
+            if (op) {// Si ya habia una operacion antes
+                setOp(value);// agregamos la operacion
             }
-            if (prevValue && op && nextValue) {
+            if (prevValue && op && nextValue) {//Si ya esxiste una operacion, un valor anterior y se ingreso otro valor
                 performOperation();
             }
-            
-        } else if (value === "c") {
+            //Si no son operacion o valores ejecuta lo siguiente
+        } else if (value === "c") {//Borra los valores almacenados 
             clearData();
-        } else if (value === "Retr"){
+        } else if (value === "Retr"){//Borra el ultimo valor
             clearLast();
-        } else if (value === "\xB1") {
+        } else if (value === "\xB1") {//asigna signo al valor
             changeSign();
-        } else if (value === ".") {
+        } else if (value === ".") {// agrega punto al valor
             insertDot();
-        } else if (value === "%") {
+        } else if (value === "%") {//Lo transforam en porcentaje
             percentage();
         }
 
     };
 
-    return [handleOperation, nextValue]
+    return [handleOperation, nextValue] /*Retorna la funcion manejar la operacion junto con el valor a 
+    mostrar en pantalla*/
 }
 
 export default ChangeValueCalculator
